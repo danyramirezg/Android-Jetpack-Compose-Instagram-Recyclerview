@@ -1,6 +1,5 @@
 package com.example.androidjetpackcomposerecyclerview.ui.theme
 
-import android.media.Image
 import android.widget.Toast
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
@@ -10,11 +9,9 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Card
-import androidx.compose.material3.LocalContentColor
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -23,8 +20,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.semantics.Role.Companion.Image
-import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -82,10 +77,13 @@ fun getCountriesFlag(): List<Countries> {
     return listOf(
         Countries("Argentina", "Buenos Aires", "South America", R.drawable.argentina_flag),
         Countries("Colombia", "Bogota", "South America", R.drawable.colombia_flag),
-        Countries("Colombia", "Bogota", "South America", R.drawable.colombia_flag),
-        Countries("Colombia", "Bogota", "South America", R.drawable.colombia_flag),
-        Countries("Colombia", "Bogota", "South America", R.drawable.colombia_flag),
-        Countries("Colombia", "Bogota", "South America", R.drawable.colombia_flag)
+        Countries("France", "Paris", "Europe", R.drawable.france_flag),
+        Countries("Italy", "Rome", "Europe", R.drawable.italy_flag),
+        Countries("Spain", "Madrid", "Europe", R.drawable.spain_flag),
+        Countries("Ukraine", "Kiev", "Europe", R.drawable.ukraine_flag),
+        Countries("Germany", "Madrid", "Europe", R.drawable.germany_flag),
+        Countries("Ukraine", "Kiev", "Europe", R.drawable.ukraine_flag),
+        Countries("Switzerland", "-", "Europe", R.drawable.switzerland_flag),
+        Countries("United States", "Washington D.C.", "North America", R.drawable.unitates_states_flag),
     )
-
 }
