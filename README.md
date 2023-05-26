@@ -1,5 +1,5 @@
 # Android Jetpack Compose Recyclerview - Country list.
-
+---
 In this project you will see a list of contries (that I haved traveled so far) :sweat_smile:
 
 This is a recycler view as grid layout wrote in Jetpack Compose and it has a TextButton that scrolls up to go to the first item in the recyclerview. 
@@ -10,8 +10,7 @@ This is a recycler view as grid layout wrote in Jetpack Compose and it has a Tex
 
 ## App Demo
 
-![Demo](record-expanded-list.gif)
-
+![Demo](demo.mov)
 ---
 
 ## Author

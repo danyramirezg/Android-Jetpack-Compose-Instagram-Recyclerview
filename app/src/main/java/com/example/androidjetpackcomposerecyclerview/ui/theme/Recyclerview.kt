@@ -84,7 +84,7 @@ fun CountriesGridRecyclerView() {
                      .padding(16.dp),
                  onClick = {
                            coroutineScope.launch {
-                               // TextButton scrolls up to go to the first items in the recyclerview.
+                               // TextButton scrolls up to go to the first item in the recyclerview.
                                recyclerviewState.animateScrollToItem(0)
                            }
                  },
