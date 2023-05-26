@@ -10,7 +10,8 @@ This is a recycler view as grid layout wrote in Jetpack Compose and it has a Tex
 
 ## App Demo
 
-![Demo](demo.mov)
+![Demo](demo.gif)
+
 ---
 
 ## Author
