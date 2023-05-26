@@ -9,7 +9,7 @@ This is a recycler view as grid layout wrote in Jetpack Compose and it has a Tex
 * [Jetpack Compose Course](https://www.udemy.com/course/jetpack-compose-desde-0-a-profesional/) 
 
 ## App Demo
-* [Demo](demo.gif)
+* ![Demo](demo.gif)
 ---
 ## Author
 * **Daniela Ramirez Gomez** - [danyramirezg](https://github.com/danyramirezg)
