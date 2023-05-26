@@ -13,10 +13,18 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.foundation.lazy.grid.rememberLazyGridState
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.rememberLazyListState
+import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.derivedStateOf
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -29,6 +37,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.androidjetpackcomposerecyclerview.R
 import com.example.androidjetpackcomposerecyclerview.model.Countries
+import kotlinx.coroutines.launch
 
 @Composable
 fun CountriesHorizontalRecyclerView() {
@@ -50,13 +59,40 @@ fun CountriesHorizontalRecyclerView() {
 @Composable
 fun CountriesGridRecyclerView() {
     val context = LocalContext.current
+    val recyclerviewState = rememberLazyGridState()
+    val coroutineScope = rememberCoroutineScope()
+    
+    Column() {
+        LazyVerticalGrid(GridCells.Fixed(2), state = recyclerviewState, modifier = Modifier.weight(1f),
+            content = {
+            items(getCountriesFlag()) { country ->
+                ItemCountry(country = country)
+                { Toast.makeText(context, it.CountryName, Toast.LENGTH_SHORT).show() }
+            }
+        })
 
-    LazyVerticalGrid(GridCells.Fixed(2), content = {
-        items(getCountriesFlag()) { country ->
-            ItemCountry(country = country)
-            { Toast.makeText(context, it.Continent, Toast.LENGTH_SHORT).show() }
+        val showButton by remember {
+            // derivedStateOf optimize the recomposition
+            derivedStateOf {
+                recyclerviewState.firstVisibleItemIndex > 0 // Shows the button after scrolled the first item.
+            }
         }
-    })
+         if (showButton) {
+             TextButton(
+                 modifier = Modifier
+                     .align(Alignment.CenterHorizontally)
+                     .padding(16.dp),
+                 onClick = {
+                           coroutineScope.launch {
+                               // TextButton scrolls up to go to the first items in the recyclerview.
+                               recyclerviewState.animateScrollToItem(0)
+                           }
+                 },
+             ) {
+                 Text(text = "Scroll up", fontWeight = FontWeight.ExtraBold, fontSize = 32.sp, color = Color(R.color.black))
+             }
+         }
+    }
 }
 
 @Composable
