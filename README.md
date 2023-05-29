@@ -7,7 +7,7 @@ This is a recycler view as grid layout wrote in Jetpack Compose and it has a Tex
 ---
 
 In this project you will see a sticky header implemented as well, just keep in mind that when you want to see how it works, go to the
-"preview" and uncomment this line of code:
+"preview" in the MainActivityFile and uncomment this line of code:
 
 ```
     CountryStickyHeader()
