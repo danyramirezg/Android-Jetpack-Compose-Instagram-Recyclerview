@@ -11,6 +11,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.androidjetpackcomposerecyclerview.ui.theme.AndroidJetpackComposeRecyclerViewTheme
 import com.example.androidjetpackcomposerecyclerview.ui.theme.CountriesGridRecyclerView
+import com.example.androidjetpackcomposerecyclerview.ui.theme.CountryStickyHeader
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,6 +34,8 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun RecyclerViewPreview() {
     AndroidJetpackComposeRecyclerViewTheme {
+
         CountriesGridRecyclerView()
+        // CountryStickyHeader()
     }
 }

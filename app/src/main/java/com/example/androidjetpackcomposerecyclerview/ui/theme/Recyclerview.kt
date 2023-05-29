@@ -2,9 +2,13 @@ package com.example.androidjetpackcomposerecyclerview.ui.theme
 
 import android.widget.Toast
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -92,6 +96,35 @@ fun CountriesGridRecyclerView() {
                  Text(text = "Scroll up", fontWeight = FontWeight.ExtraBold, fontSize = 32.sp, color = Color(R.color.black))
              }
          }
+    }
+}
+
+@OptIn(ExperimentalFoundationApi::class)
+@Composable
+fun CountryStickyHeader() {
+
+    val context = LocalContext.current
+    val country = getCountriesFlag().groupBy { it.Continent }
+
+    LazyColumn(verticalArrangement = Arrangement.Center) {
+        country.forEach { (continent, country) ->
+
+            stickyHeader {
+                Text(
+                    text = continent,
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .background(Color.Cyan),
+                    fontSize = 48.sp,
+                    fontWeight = FontWeight.ExtraBold
+                )
+            }
+
+            items(country) { countries ->
+                ItemCountry(country = countries)
+                { Toast.makeText(context, it.CountryName, Toast.LENGTH_SHORT).show() }
+            }
+        }
     }
 }
 
